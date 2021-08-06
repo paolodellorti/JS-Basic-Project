@@ -1,0 +1,72 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.container {
+  height: 70vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.recordContainer {
+  height: 30vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.add,
+.subtract {
+  font-size: 4rem;
+  width: 35%;
+  height: 100%;
+  border: none;
+}
+
+.add:hover,
+.subtract:hover,
+.resetButton:hover {
+  cursor: pointer;
+  background-color: #bbb;
+}
+
+.counter {
+  font-size: 4rem;
+  height: 100%;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.keyboard {
+  font-size: 2rem;
+  color: #707070
+}
+
+.recordMin,
+.recordMax {
+  text-align: center;
+  width: 35%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.counter,
+.recordMin,
+.recordMax {
+  background-color: #fff;
+}
+
+.resetButton {
+  height: 100%;
+  width: 30%;
+  border: none;
+  font-size: 2rem;
+}
