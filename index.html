@@ -8,14 +8,19 @@
   <body>
 
     <div class="container">
-      <button class="subtract">-<br><span class="keyboard">(ctrl/cmd + z)</span></button>
-      <div class="counter"></div>
-      <button class="add">+<br><span class="keyboard">(ctrl/cmd + x)</span></button>
+      <button class="subtract"> - </button>
+
+      <div class="counterContainer">
+        <span class="counter"></span>
+      </div>
+      <button class="add"> + </button>
     </div>
 
     <div class="recordContainer">
       <div class="recordMin"><div class="bgWrite">MIN</div><span class="min"></span></div>
-      <button class="resetButton">Reset<br><span class="keyboard">(ctrl/cmd + m)<br>double click to reset records</span></button>
+      <div class="memoContainer">
+        <div class="memo" id="m1">S</div><div class="memo chiaro" id="m2">T</div><div class="memo" id="m3">O</div><div class="memo chiaro" id="m4">R</div><div class="memo scuro" id="m5">E</div>
+      </div>
       <div class="recordMax"><div class="bgWrite">MAX</div><span class="max"></span></div>
     </div>
 

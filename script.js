@@ -1,93 +1,153 @@
 let add = document.querySelector(".add")
 let counter = document.querySelector(".counter")
 let subtract = document.querySelector(".subtract")
-let recordMax = document.querySelector(".max")
-let recordMin = document.querySelector(".min")
-let resetButton = document.querySelector(".resetButton")
-
+let counterContainer = document.querySelector(".counterContainer")
+let recordMax = document.querySelector(".recordMax")
+let recordMin = document.querySelector(".recordMin")
+let max = document.querySelector(".max")
+let min = document.querySelector(".min")
+let m1 = document.querySelector("#m1")
+let m2 = document.querySelector("#m2")
+let m3 = document.querySelector("#m3")
+let m4 = document.querySelector("#m4")
+let m5 = document.querySelector("#m5")
 
 let display = 0
-let max = 0
-let min = 0
+let displayMax = 0
+let displayMin = 0
 
+//chiamo subito la funzione per mostrare lo 0 appena caricata la pagina
 updateDisplay()
 
 add.addEventListener('click', ()=>{
   ++display
   updateDisplay()
-  stop()
 })
 
-document.addEventListener('keydown', function(event) {
-  if (event.code == 'KeyX' && (event.ctrlKey || event.metaKey)) {
-    ++display
-    updateDisplay()
-    if (display == 42) {
-      stop()
-    }
-  }
+add.addEventListener('dblclick', ()=>{
+  display += 8
+  updateDisplay()
 })
 
 subtract.addEventListener('click', ()=>{
   --display
   updateDisplay()
-  stop()
+})
+
+subtract.addEventListener('dblclick', ()=>{
+  display -= 8
+  updateDisplay()
 })
 
 document.addEventListener('keydown', function(event) {
-  if (event.code == 'KeyZ' && (event.ctrlKey || event.metaKey)) {
-    --display
-    updateDisplay()
-    if (display == -42) {
-      stop()
-    }
+  if (event.code == 'KeyR') {
+    display = 0
+    counter.innerHTML = display
+    displayMax = 0
+    max.innerHTML = ""
+    displayMin = 0
+    min.innerHTML = ""
   }
 })
 
-resetButton.addEventListener('click', ()=>{
-  reset()
+counterContainer.addEventListener('dblclick', ()=>{
+  display = 0
+  counter.innerHTML = display
 })
 
-document.addEventListener('keydown', function(event) {
-  if (event.code == 'KeyM' && (event.ctrlKey || event.metaKey)) {
-    reset()
-  }
+recordMax.addEventListener('dblclick', ()=>{
+  displayMax = 0
+  max.innerHTML = ""
 })
 
-resetButton.addEventListener('dblclick', ()=>{
-  recordMax.innerHTML = ""
-  recordMin.innerHTML = ""
-  min = 0
-  max = 0
+recordMin.addEventListener('dblclick', ()=>{
+  displayMin = 0
+  min.innerHTML = ""
 })
+
+//Click su store => stora il numero
+m1.addEventListener('click', ()=>{
+  memo(m1)
+})
+
+//Double Click => resetta, lo faccio per tutti i 5 tasti m
+m1.addEventListener('dblclick', ()=>{
+  resetMemo(m1)
+})
+
+m2.addEventListener('click', ()=>{
+  memo(m2)
+})
+
+m2.addEventListener('dblclick', ()=>{
+  resetMemo(m2)
+})
+
+m3.addEventListener('click', ()=>{
+  memo(m3)
+})
+
+m3.addEventListener('dblclick', ()=>{
+  resetMemo(m3)
+})
+
+m4.addEventListener('click', ()=>{
+  memo(m4)
+})
+
+m4.addEventListener('dblclick', ()=>{
+  resetMemo(m4)
+})
+
+m5.addEventListener('click', ()=>{
+  memo(m5)
+})
+
+m5.addEventListener('dblclick', ()=>{
+  resetMemo(m5)
+})
+
+//tolgo la selezione del testo
+window.addEventListener('selectstart', function(e){ e.preventDefault(); });
+
 
 function updateDisplay() {
   counter.innerHTML = display
 
-  if (max < display) {
-    max = display
-    recordMax.innerHTML = max
+  if (displayMax < display) {
+    displayMax = display
+    max.innerHTML = displayMax
   }
 
-  if (min > display) {
-    min = display
-    recordMin.innerHTML = min
+  if (displayMin > display) {
+    displayMin = display
+    min.innerHTML = displayMin
   }
 }
 
-function reset() {
-  display = 0
-  counter.innerHTML = display
+function memo(m) {
+  m.style.color = "#f3f1e9"
+  m.innerHTML = display
 }
 
-function stop() {
-  if (display == -42) {
-    alert("Heeey you reach 42!! The answer to the ultimate question of Life, the universe, and everything... Better start again!")
-    reset()
-  }
+function resetMemo(m) {
+  m.style.color = "#404040"
 
-  if (display == 42) {
-    alert("Heeey you reach 42!! The answer to the ultimate question of Life, the universe, and everything... Better start again!")
-    reset()
+  switch (m) {
+    case m1:
+    m.innerHTML = "S"
+      break;
+    case m2:
+    m.innerHTML = "T"
+      break;
+    case m3:
+    m.innerHTML = "O"
+      break;
+    case m4:
+    m.innerHTML = "R"
+      break;
+    case m5:
+    m.innerHTML = "E"
+      break;
   }
 }
