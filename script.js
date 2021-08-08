@@ -1,8 +1,8 @@
 let add = document.querySelector(".add")
 let counter = document.querySelector(".counter")
 let subtract = document.querySelector(".subtract")
-let recordMax = document.querySelector(".recordMax")
-let recordMin = document.querySelector(".recordMin")
+let recordMax = document.querySelector(".max")
+let recordMin = document.querySelector(".min")
 let resetButton = document.querySelector(".resetButton")
 
 
@@ -22,7 +22,9 @@ document.addEventListener('keydown', function(event) {
   if (event.code == 'KeyX' && (event.ctrlKey || event.metaKey)) {
     ++display
     updateDisplay()
-    stop()
+    if (display == 42) {
+      stop()
+    }
   }
 })
 
@@ -36,7 +38,9 @@ document.addEventListener('keydown', function(event) {
   if (event.code == 'KeyZ' && (event.ctrlKey || event.metaKey)) {
     --display
     updateDisplay()
-    stop()
+    if (display == -42) {
+      stop()
+    }
   }
 })
 
@@ -50,17 +54,24 @@ document.addEventListener('keydown', function(event) {
   }
 })
 
+resetButton.addEventListener('dblclick', ()=>{
+  recordMax.innerHTML = ""
+  recordMin.innerHTML = ""
+  min = 0
+  max = 0
+})
+
 function updateDisplay() {
   counter.innerHTML = display
 
-  if (max <= display) {
+  if (max < display) {
     max = display
-    recordMax.innerHTML = "Max value reached:<br>" + max
+    recordMax.innerHTML = max
   }
 
-  if (min >= display) {
+  if (min > display) {
     min = display
-    recordMin.innerHTML = "Min value reached:<br>" + min
+    recordMin.innerHTML = min
   }
 }
 
@@ -71,12 +82,12 @@ function reset() {
 
 function stop() {
   if (display == -42) {
-    alert("-42!! Heeey you reach the answer to the ultimate question of Life, the universe, and everything... Better start again!")
+    alert("Heeey you reach 42!! The answer to the ultimate question of Life, the universe, and everything... Better start again!")
     reset()
   }
 
   if (display == 42) {
-    alert("42!! Heeey you reach the answer to the ultimate question of Life, the universe, and everything... Better start again!")
+    alert("Heeey you reach 42!! The answer to the ultimate question of Life, the universe, and everything... Better start again!")
     reset()
   }
 }
