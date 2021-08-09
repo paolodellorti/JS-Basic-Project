@@ -59,13 +59,13 @@ counterContainer.addEventListener('dblclick', ()=>{
 })
 
 recordMax.addEventListener('dblclick', ()=>{
-  displayMax = -1000
-  max.innerHTML = ""
+  display = displayMax
+  counter.innerHTML = display
 })
 
 recordMin.addEventListener('dblclick', ()=>{
-  displayMin = 1000
-  min.innerHTML = ""
+  display = displayMin
+  counter.innerHTML = display
 })
 
 memos.forEach(m => {
