@@ -2,9 +2,9 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: monospace;
   color: #f3f1e9;
-  cursor: none;
+  cursor: none; /*tolgo il cursore standard*/
 }
 
 body {
@@ -21,7 +21,6 @@ body {
   height: 30vh;
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
 .add,
@@ -33,10 +32,6 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.add,
-.subtract {
   background: #202020;
 }
 
@@ -47,6 +42,7 @@ body {
 .recordMax:hover,
 .counterContainer:hover {
   background: #404040;
+  transition: all 0.3s;
 }
 
 .counterContainer {
@@ -59,9 +55,22 @@ body {
   align-items: center;
 }
 
-.keyboard {
+.info {
+  position: absolute;
+  bottom: 0px;
   font-size: 2rem;
   color: #202020;
+  width: 80px;
+  height: 80px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.info:hover {
+  color: #363636;
+  transition: all 0.3s;
 }
 
 .recordMin,
@@ -76,27 +85,21 @@ body {
 
 .counterContainer,
 .recordMin,
-.recordMax {
+.recordMax,
+.chiaro {
   background: #363636;
-}
-
-.resetButton  {
-  height: 100%;
-  width: 30%;
-  border: none;
-  font-size: 2rem;
-}
-
-.bgWrite {
-  position: absolute;
-  color: #202020;
-  font-size: 8rem;
 }
 
 .min,
 .max {
   z-index: 10;
   font-size: 3rem;
+}
+
+.bgWrite {
+  position: absolute;
+  color: #202020;
+  font-size: 8rem;
 }
 
 .memoContainer {
@@ -109,17 +112,12 @@ body {
 }
 
 .memo {
-  text-align: center;
   font-size: 2.5rem;
   width: 20%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.chiaro {
-  background: #363636;
 }
 
 #m1,
@@ -130,6 +128,7 @@ body {
   color: #404040;
 }
 
+/* creo il nuovo cursor */
 div.cursors div {
   position: absolute;
   width: 32px;
@@ -142,6 +141,7 @@ div.cursors div {
   opacity: 0.7;
 }
 
+/* creo le scritte informative a scomparsa */
 div.cursors div span {
   position: absolute;
   top: 7px;
