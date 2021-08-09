@@ -11,6 +11,7 @@ let m2 = document.querySelector("#m2")
 let m3 = document.querySelector("#m3")
 let m4 = document.querySelector("#m4")
 let m5 = document.querySelector("#m5")
+let memos = document.querySelectorAll(".memo")
 
 let display = 0
 let displayMax = 0
@@ -47,6 +48,7 @@ document.addEventListener('keydown', function(event) {
     max.innerHTML = ""
     displayMin = 0
     min.innerHTML = ""
+    //da aggiungere reset memos
   }
 })
 
@@ -65,50 +67,34 @@ recordMin.addEventListener('dblclick', ()=>{
   min.innerHTML = ""
 })
 
-//Click su store => stora il numero
-m1.addEventListener('click', ()=>{
-  memo(m1)
-})
+memos.forEach(m => {
+  m.addEventListener('click', ()=>{
+    memo(m)
+  })
+});
 
-//Double Click => resetta, lo faccio per tutti i 5 tasti m
-m1.addEventListener('dblclick', ()=>{
-  resetMemo(m1)
-})
+memos.forEach(m => {
+  m.addEventListener('dblclick', ()=>{
+    resetMemo(m)
+  })
+});
 
-m2.addEventListener('click', ()=>{
-  memo(m2)
-})
+memos.forEach(m => {
+  m.addEventListener('mouseover', ()=>{
+    if (m.innerHTML == "S" || m.innerHTML == "T" || m.innerHTML == "O" || m.innerHTML == "R" || m.innerHTML == "E") {
+      m.style.color = "#363636"
+    }
+  })
 
-m2.addEventListener('dblclick', ()=>{
-  resetMemo(m2)
-})
-
-m3.addEventListener('click', ()=>{
-  memo(m3)
-})
-
-m3.addEventListener('dblclick', ()=>{
-  resetMemo(m3)
-})
-
-m4.addEventListener('click', ()=>{
-  memo(m4)
-})
-
-m4.addEventListener('dblclick', ()=>{
-  resetMemo(m4)
-})
-
-m5.addEventListener('click', ()=>{
-  memo(m5)
-})
-
-m5.addEventListener('dblclick', ()=>{
-  resetMemo(m5)
-})
+  m.addEventListener('mouseout', ()=>{
+    if (m.innerHTML == "S" || m.innerHTML == "T" || m.innerHTML == "O" || m.innerHTML == "R" || m.innerHTML == "E") {
+      m.style.color = "#404040"
+    }
+  })
+});
 
 //tolgo la selezione del testo
-window.addEventListener('selectstart', function(e){ e.preventDefault(); });
+window.addEventListener('selectstart', function(e){ e.preventDefault() })
 
 
 function updateDisplay() {
@@ -117,11 +103,19 @@ function updateDisplay() {
   if (displayMax < display) {
     displayMax = display
     max.innerHTML = displayMax
+    if (min.innerHTML == ""){
+      displayMin = 0
+      min.innerHTML = 0
+    }
   }
 
   if (displayMin > display) {
     displayMin = display
     min.innerHTML = displayMin
+    if (max.innerHTML == ""){
+      displayMin = 0
+      max.innerHTML = 0
+    }
   }
 }
 
@@ -131,7 +125,7 @@ function memo(m) {
 }
 
 function resetMemo(m) {
-  m.style.color = "#404040"
+  m.style.color = "#363636"
 
   switch (m) {
     case m1:
