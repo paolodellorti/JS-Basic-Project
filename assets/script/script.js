@@ -1,16 +1,25 @@
-let add = document.querySelector(".add")
-let counter = document.querySelector(".counter")
-let subtract = document.querySelector(".subtract")
-let counterContainer = document.querySelector(".counterContainer")
+
+let container = document.querySelector(".container")
+//chiamo la funz. che crea gli elementi counter, + e - tramite manipolazione del DOM
+createElements()
+
 let recordMax = document.querySelector(".recordMax")
 let recordMin = document.querySelector(".recordMin")
 let max = document.querySelector(".max")
 let min = document.querySelector(".min")
 let memos = document.querySelectorAll(".memo")
+let subtract = document.querySelector(".subtract")
+let counterContainer = document.querySelector(".counterContainer")
+let add = document.querySelector(".add")
+let counter = document.querySelector(".counter")
 
 let display = 0
 let displayMax = 0
 let displayMin = 0
+
+
+
+
 
 //chiamo subito la funzione per mostrare lo 0 appena caricata la pagina
 updateDisplay()
@@ -80,7 +89,7 @@ memos.forEach(m => {
   })
 })
 
-//risolvo un problema dello sfondo delle singole celle di storaggio
+//risolvo un problema del colore del testo delle singole celle di storaggio
 memos.forEach(m => {
   m.addEventListener('mouseover', ()=>{
     if (m.innerHTML == "S" || m.innerHTML == "T" || m.innerHTML == "O" || m.innerHTML == "R" || m.innerHTML == "E") {
@@ -111,6 +120,15 @@ function updateDisplay() {
     displayMin = display
     min.innerHTML = displayMin
   }
+}
+
+//creo gli elementi tramite manipolazione DOM
+function createElements() {
+  container.innerHTML = '<div class="subtract"></div><div class="counterContainer"></div><div class="add"></div>'
+
+  document.querySelector(".subtract").innerHTML = '<span data-hover="double click -10"> - </span>'
+  document.querySelector(".counterContainer").innerHTML = '<span class="counter"  data-hover="double click to reset"></span><span class="info" data-hover="press R to reset all">R</span>'
+  document.querySelector(".add").innerHTML = '<span data-hover="double click +10"> + </span>'
 }
 
 //funzione che memorizza il numero attuale
