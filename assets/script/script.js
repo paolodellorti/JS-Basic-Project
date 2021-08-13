@@ -1,17 +1,16 @@
-
-let container = document.querySelector(".container")
 //chiamo la funz. che crea gli elementi counter, + e - tramite manipolazione del DOM
 createElements()
 
-let recordMax = document.querySelector(".recordMax")
-let recordMin = document.querySelector(".recordMin")
-let max = document.querySelector(".max")
-let min = document.querySelector(".min")
-let memos = document.querySelectorAll(".memo")
+let container = document.querySelector(".container")
 let subtract = document.querySelector(".subtract")
 let counterContainer = document.querySelector(".counterContainer")
-let add = document.querySelector(".add")
 let counter = document.querySelector(".counter")
+let add = document.querySelector(".add")
+let recordMin = document.querySelector(".recordMin")
+let min = document.querySelector(".min")
+let memos = document.querySelectorAll(".memo")
+let recordMax = document.querySelector(".recordMax")
+let max = document.querySelector(".max")
 
 let display = 0
 let displayMax = 0
@@ -122,8 +121,13 @@ function updateDisplay() {
   }
 }
 
-//creo gli elementi tramite manipolazione DOM
+//creo gli elementi tramite manipolazione DOM +++++ Funzione aggiunta dopo correzione coach
+//non avevo capito correttamente la richiesta, grazie per l'aiuto :)
 function createElements() {
+
+  let container = document.createElement('div')
+  container.className = "container"
+  document.body.prepend(container)
 
   let sub = document.createElement('div')
   sub.className = "subtract"
