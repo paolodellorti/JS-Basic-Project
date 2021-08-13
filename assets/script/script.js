@@ -124,11 +124,23 @@ function updateDisplay() {
 
 //creo gli elementi tramite manipolazione DOM
 function createElements() {
-  container.innerHTML = '<div class="subtract"></div><div class="counterContainer"></div><div class="add"></div>'
 
-  document.querySelector(".subtract").innerHTML = '<span data-hover="double click -10"> - </span>'
-  document.querySelector(".counterContainer").innerHTML = '<span class="counter"  data-hover="double click to reset"></span><span class="info" data-hover="press R to reset all">R</span>'
-  document.querySelector(".add").innerHTML = '<span data-hover="double click +10"> + </span>'
+  let sub = document.createElement('div')
+  sub.className = "subtract"
+  container.append(sub)
+
+  let cc = document.createElement('div')
+  cc.className = "counterContainer"
+  container.append(cc)
+
+  let add = document.createElement('div')
+  add.className = "add"
+  container.append(add)
+
+
+  sub.innerHTML = '<span data-hover="double click -10"> - </span>'
+  cc.innerHTML = '<span class="counter"  data-hover="double click to reset"></span><span class="info" data-hover="press R to reset all">R</span>'
+  add.innerHTML = '<span data-hover="double click +10"> + </span>'
 }
 
 //funzione che memorizza il numero attuale
