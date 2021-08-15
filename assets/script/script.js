@@ -107,11 +107,7 @@ memos.forEach(m => {
 //tolgo la possibilità di selezione del testo
 window.addEventListener('selectstart', function(e){ e.preventDefault() })
 
-<<<<<<< HEAD
 //ritorno la data attuale
-=======
-//aggiorno la data attuale
->>>>>>> 8ae66209ac9b4e08a9c0210102ba4d1ad016170d
 function actualDate() {
   let now = new Date()
   let dd = String(now.getDate()).padStart(2, '0')
@@ -131,26 +127,16 @@ function updateDisplay() {
     displayMax = displayCounter
     max.innerHTML = displayMax
     dateMax.innerHTML = actualDate()
-<<<<<<< HEAD
     localStorage.setItem("max", String(displayMax))//aggiorno il record max nel local storage
     localStorage.setItem("dateMax", dateMax.innerHTML)//aggiorno la data del record max nel local storage
-=======
-    localStorage.setItem("max", String(displayMax))// aggiorno il local storage
-    localStorage.setItem("dateMax", dateMax.innerHTML)
->>>>>>> 8ae66209ac9b4e08a9c0210102ba4d1ad016170d
     }
 
   if (displayMin > displayCounter) {
     displayMin = displayCounter
     min.innerHTML = displayMin
     dateMin.innerHTML = actualDate()
-<<<<<<< HEAD
     localStorage.setItem("min", String(displayMin))//aggiorno il record min nel local storage
     localStorage.setItem("dateMin", dateMin.innerHTML)//aggiorno la data del record min nel local storage
-=======
-    localStorage.setItem("min", String(displayMin))//aggiorno il local storage
-    localStorage.setItem("dateMin", dateMin.innerHTML)
->>>>>>> 8ae66209ac9b4e08a9c0210102ba4d1ad016170d
   }
 }
 
