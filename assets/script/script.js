@@ -115,9 +115,13 @@ function actualDate() {
   let yyyy = now.getFullYear()
   let hh = now.getHours()
   let mimi = now.getMinutes()
+  if (String(mimi).length == 1) {
+    mimi = "0" + mimi
+  }
   now = `Reached on ${dd}/${mm}/${yyyy} at ${hh}:${mimi}`
   return now
 }
+
 
 //funzione principale che aggiorna il counter
 function updateDisplay() {
