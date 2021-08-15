@@ -145,11 +145,13 @@ function getMaxMinFromStorage() {
   let maxStorage = Number(localStorage.getItem("max"))
   let minStorage = Number(localStorage.getItem("min"))
 
-  if (maxStorage || minStorage) {
+  if (maxStorage) {
     displayMax = maxStorage
     max.innerHTML = displayMax
     dateMax.innerHTML = localStorage.getItem("dateMax")
+  }
 
+  if  (minStorage) {
     displayMin = minStorage
     min.innerHTML = displayMin
     dateMin.innerHTML = localStorage.getItem("dateMin")
