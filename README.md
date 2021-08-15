@@ -1,7 +1,7 @@
 # A SIMPLE COUNTER
 ### di Paolo Dell'Orti
 ### <a href="https://paolodellorti.github.io/" target="_blank">paolodellorti.github.io</a>
-### versione 1.01
+### versione 1.02
 ![home](https://user-images.githubusercontent.com/84512004/129347955-65e9cd1d-5680-425b-8f46-4e4dd6c9ea39.png)<br><br>
 
 A SIMPLE COUNTER è un semplice esercizio JS.<br>
@@ -10,9 +10,14 @@ o diminuire un valore tramite due bottoni, usando solamente JS.<br>
 L'ho creato in una sola pagina usando vanilla HTML, CSS e JS.<br>
 Queste sono le funzioni che ho aggiunto:<br>
 
+## UPDATE 1.02
+Aggiunto, tramite localStorage, il salvataggio dei record sul browser.<br>
+Quindi aprendo il sito dallo stesso browser, verranno caricati i record fatti in precedenza,<br>
+oltre la data e l'ora di quando è stato raggiunto il punteggio. L'utente non ha possibilità di cancellarlo direttamente dal sito (senza ispeziona elemento).
+
 ## UPDATE 1.01
 Aggiunta la creazione degli elementi principali con manipolazione DOM,<br>
-tramite la funzione createElements() (riga 126 di script.js).
+tramite la funzione createElements() (riga 161 di script.js).
 
 ## MAX & MIN
 Questi due spazi mostrano il massimo
