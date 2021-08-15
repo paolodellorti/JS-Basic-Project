@@ -114,6 +114,9 @@ function actualDate() {
   let mm = String(now.getMonth() + 1).padStart(2, '0') //January is 0!
   let yyyy = now.getFullYear()
   let hh = now.getHours()
+  if (String(hh).length == 1) {
+    hh = "0" + hh
+  }
   let mimi = now.getMinutes()
   if (String(mimi).length == 1) {
     mimi = "0" + mimi
