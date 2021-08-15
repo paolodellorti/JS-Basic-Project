@@ -1,18 +1,18 @@
 //chiamo la funz. che crea gli elementi counter, + e - tramite manipolazione del DOM
 createElements()
 
-let container = document.querySelector(".container")
-let subtract = document.querySelector(".subtract")
-let counterContainer = document.querySelector(".counterContainer")
-let counter = document.querySelector(".counter")
-let add = document.querySelector(".add")
-let recordMin = document.querySelector(".recordMin")
-let min = document.querySelector(".min")
-let memos = document.querySelectorAll(".memo")
-let recordMax = document.querySelector(".recordMax")
-let max = document.querySelector(".max")
+const container = document.querySelector(".container")
+const subtract = document.querySelector(".subtract")
+const counterContainer = document.querySelector(".counterContainer")
+const counter = document.querySelector(".counter")
+const add = document.querySelector(".add")
+const recordMin = document.querySelector(".recordMin")
+const min = document.querySelector(".min")
+const memos = document.querySelectorAll(".memo")
+const recordMax = document.querySelector(".recordMax")
+const max = document.querySelector(".max")
 
-let display = 0
+let displayCounter = 0
 let displayMax = 0
 let displayMin = 0
 
@@ -25,30 +25,30 @@ updateDisplay()
 
 //creo gli eventi per aggiungere e sottrarre 1 con un click e 10 con due click
 add.addEventListener('click', ()=>{
-  ++display
+  ++displayCounter
   updateDisplay()
 })
 
 add.addEventListener('dblclick', ()=>{
-  display += 8
+  displayCounter += 8
   updateDisplay()
 })
 
 subtract.addEventListener('click', ()=>{
-  --display
+  --displayCounter
   updateDisplay()
 })
 
 subtract.addEventListener('dblclick', ()=>{
-  display -= 8
+  displayCounter -= 8
   updateDisplay()
 })
 
 //creo tasto reset (R)
 document.addEventListener('keydown', function(event) {
   if (event.code == 'KeyR') {
-    display = 0
-    counter.innerHTML = display
+    displayCounter = 0
+    counter.innerHTML = displayCounter
     displayMax = 0
     max.innerHTML = ""
     displayMin = 0
@@ -62,18 +62,18 @@ document.addEventListener('keydown', function(event) {
 
 //creo i reset dei singoli elementi con doppio click
 counterContainer.addEventListener('dblclick', ()=>{
-  display = 0
-  counter.innerHTML = display
+  displayCounter = 0
+  counter.innerHTML = displayCounter
 })
 
 recordMax.addEventListener('dblclick', ()=>{
-  display = displayMax
-  counter.innerHTML = display
+  displayCounter = displayMax
+  counter.innerHTML = displayCounter
 })
 
 recordMin.addEventListener('dblclick', ()=>{
-  display = displayMin
-  counter.innerHTML = display
+  displayCounter = displayMin
+  counter.innerHTML = displayCounter
 })
 
 memos.forEach(m => {
@@ -108,15 +108,15 @@ window.addEventListener('selectstart', function(e){ e.preventDefault() })
 
 //funzione principale che aggiorna il counter
 function updateDisplay() {
-  counter.innerHTML = display
+  counter.innerHTML = displayCounter
 
-  if (displayMax < display) {
-    displayMax = display
+  if (displayMax < displayCounter) {
+    displayMax = displayCounter
     max.innerHTML = displayMax
     }
 
-  if (displayMin > display) {
-    displayMin = display
+  if (displayMin > displayCounter) {
+    displayMin = displayCounter
     min.innerHTML = displayMin
   }
 }
@@ -150,7 +150,7 @@ function createElements() {
 //funzione che memorizza il numero attuale
 function memo(m) {
   m.style.color = "#f3f1e9"
-  m.innerHTML = display
+  m.innerHTML = displayCounter
 }
 
 //funzione che resetta la singola cella di memoria, riportandola allo stato originale
