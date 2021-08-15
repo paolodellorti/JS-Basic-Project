@@ -8,9 +8,12 @@ const counter = document.querySelector(".counter")
 const add = document.querySelector(".add")
 const recordMin = document.querySelector(".recordMin")
 const min = document.querySelector(".min")
+const dateMin = document.querySelector(".recordMinDate")
 const memos = document.querySelectorAll(".memo")
 const recordMax = document.querySelector(".recordMax")
 const max = document.querySelector(".max")
+const dateMax = document.querySelector(".recordMaxDate")
+
 
 let displayCounter = 0
 let displayMax = 0
@@ -22,6 +25,8 @@ let displayMin = 0
 
 //chiamo subito la funzione per mostrare lo 0 appena caricata la pagina
 updateDisplay()
+//e, nel caso ci fossero dei record salvati nel browser, li carico
+getMaxMinFromStorage()
 
 //creo gli eventi per aggiungere e sottrarre 1 con un click e 10 con due click
 add.addEventListener('click', ()=>{
@@ -49,10 +54,6 @@ document.addEventListener('keydown', function(event) {
   if (event.code == 'KeyR') {
     displayCounter = 0
     counter.innerHTML = displayCounter
-    displayMax = 0
-    max.innerHTML = ""
-    displayMin = 0
-    min.innerHTML = ""
     memos.forEach(m => {
         resetMemo(m)
         m.style.color = "#404040"
@@ -106,6 +107,18 @@ memos.forEach(m => {
 //tolgo la possibilità di selezione del testo
 window.addEventListener('selectstart', function(e){ e.preventDefault() })
 
+//aggiorno la data attuale
+function actualDate() {
+  let now = new Date()
+  let dd = String(now.getDate()).padStart(2, '0')
+  let mm = String(now.getMonth() + 1).padStart(2, '0') //January is 0!
+  let yyyy = now.getFullYear()
+  let hh = now.getHours()
+  let mimi = now.getMinutes()
+  now = `Reached on ${dd}/${mm}/${yyyy} at ${hh}:${mimi}`
+  return now
+}
+
 //funzione principale che aggiorna il counter
 function updateDisplay() {
   counter.innerHTML = displayCounter
@@ -113,11 +126,33 @@ function updateDisplay() {
   if (displayMax < displayCounter) {
     displayMax = displayCounter
     max.innerHTML = displayMax
+    dateMax.innerHTML = actualDate()
+    localStorage.setItem("max", String(displayMax))// aggiorno il local storage
+    localStorage.setItem("dateMax", dateMax.innerHTML)
     }
 
   if (displayMin > displayCounter) {
     displayMin = displayCounter
     min.innerHTML = displayMin
+    dateMin.innerHTML = actualDate()
+    localStorage.setItem("min", String(displayMin))//aggiorno il local storage
+    localStorage.setItem("dateMin", dateMin.innerHTML)
+  }
+}
+
+//vado a vedere se ho record salvati nel local storage, e nel caso li carico
+function getMaxMinFromStorage() {
+  let maxStorage = Number(localStorage.getItem("max"))
+  let minStorage = Number(localStorage.getItem("min"))
+
+  if (maxStorage || minStorage) {
+    displayMax = maxStorage
+    max.innerHTML = displayMax
+    dateMax.innerHTML = localStorage.getItem("dateMax")
+
+    displayMin = minStorage
+    min.innerHTML = displayMin
+    dateMin.innerHTML = localStorage.getItem("dateMin")
   }
 }
 
