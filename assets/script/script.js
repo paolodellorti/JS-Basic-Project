@@ -111,14 +111,14 @@ window.addEventListener('selectstart', function(e){ e.preventDefault() })
 function actualDate() {
   let now = new Date()
   let dd = String(now.getDate()).padStart(2, '0')
-  let mm = String(now.getMonth() + 1).padStart(2, '0') //January is 0!
+  let mm = String(now.getMonth() + 1).padStart(2, '0')
   let yyyy = now.getFullYear()
   let hh = now.getHours()
-  if (String(hh).length == 1) {
+  if (String(hh).length == 1) {//se l'ora è < 10 aggiungo uno 0 davanti
     hh = "0" + hh
   }
   let mimi = now.getMinutes()
-  if (String(mimi).length == 1) {
+  if (String(mimi).length == 1) {// = a sopra
     mimi = "0" + mimi
   }
   now = `Reached on ${dd}/${mm}/${yyyy} at ${hh}:${mimi}`
