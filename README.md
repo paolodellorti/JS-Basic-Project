@@ -2,7 +2,7 @@
 ### di Paolo Dell'Orti
 ### <a href="https://paolodellorti.github.io/" target="_blank">paolodellorti.github.io</a>
 ### versione 1.02
-![homeAttiva](https://user-images.githubusercontent.com/84512004/129487579-e44b749b-f80f-4011-ac56-bfdbbf2199c5.png)<br><br>
+![homeAttiva](https://user-images.githubusercontent.com/84512004/129488424-82724062-0869-45f9-b7ef-da625dfb90f4.png)<br><br>
 
 A SIMPLE COUNTER è un semplice esercizio JS.<br>
 L'obiettivo è quello di creare un contatore che ti permetta di aumentare
