@@ -13,7 +13,8 @@ Queste sono le funzioni che ho aggiunto:<br>
 ## UPDATE 1.02
 Aggiunto, tramite localStorage, il salvataggio dei record sul browser.<br>
 Quindi aprendo il sito dallo stesso browser, verranno caricati i record fatti in precedenza, oltre la data e l'ora di quando è stato raggiunto il punteggio.<br>
-L'utente non ha possibilità di cancellarlo direttamente dal sito (senza ispeziona elemento).
+L'utente non ha possibilità di cancellarlo direttamente dal sito (senza ispeziona elemento).<br>Immagino sia una tecnica di storaggio molto rudimentale, ma per ora
+non ne conosco altre.
 
 ## UPDATE 1.01
 Aggiunta la creazione degli elementi principali con manipolazione DOM,<br>
