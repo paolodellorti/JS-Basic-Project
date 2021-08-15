@@ -75,12 +75,20 @@ body {
 
 .recordMin,
 .recordMax {
+  position: relative;
   text-align: center;
   width: 35%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.recordMinDate,
+.recordMaxDate {
+  position: absolute;
+  bottom: 10px;
+  font-size: 0.8rem;
 }
 
 .counterContainer,
