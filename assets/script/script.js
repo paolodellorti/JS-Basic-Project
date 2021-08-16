@@ -114,9 +114,9 @@ function actualDate() {
   let mm = String(now.getMonth() + 1).padStart(2, '0')
   let yyyy = now.getFullYear()
   let hh = now.getHours()
-  if (String(hh).length == 1) {//se l'ora è < 10 aggiungo uno 0 davanti
-    hh = "0" + hh
-  }
+  // if (String(hh).length == 1) {//se l'ora è < 10 aggiungo uno 0 davanti
+  //   hh = "0" + hh
+  // }
   let mimi = now.getMinutes()
   if (String(mimi).length == 1) {// = a sopra
     mimi = "0" + mimi
