@@ -61,7 +61,7 @@ document.addEventListener('keydown', function(event) {
   }
 })
 
-//creo i reset dei singoli elementi con doppio click
+//assegno le varie funzioni per i doppi click
 counterContainer.addEventListener('dblclick', ()=>{
   displayCounter = 0
   counter.innerHTML = displayCounter
