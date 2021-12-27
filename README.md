@@ -1,6 +1,6 @@
 # A SIMPLE COUNTER
 ### di Paolo Dell'Orti
-### <a href="https://paolodellorti.github.io/" target="_blank">paolodellorti.github.io</a>
+### <a href="https://asimplecounter.netlify.app" target="_blank">asimplecounter.netlify.app</a>
 ### versione 1.02
 ![homeAttiva](https://user-images.githubusercontent.com/84512004/129488424-82724062-0869-45f9-b7ef-da625dfb90f4.png)<br><br>
 
